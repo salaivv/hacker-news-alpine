@@ -5,8 +5,47 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hacker News Alpine</title>
+  <link rel="stylesheet" href="./static/style.css">
+  <script src="//unpkg.com/alpinejs" defer></script>
+  <script src="/static/main.js"></script>
+
+  <template>
+    <meta>Salai</meta>
+  </template>
 </head>
+
 <body>
-  <h1>Hacker News Alpine</h1>
+  <div class="container">
+    <h1 class="text-center">Hacker News Alpine</h1>
+
+    <div x-data="{ stories: [] }" x-init="stories = await getTopStories()">
+      <template x-for="story in stories">
+        <div class="item my-1">
+          <a :href="story.url">
+            <p>
+              <span x-text="story.title" class="text-bold"></span>
+              <span x-text="`(${new URL(story.url).host})`"></span>
+            </p>
+          </a>
+          
+          <p>
+            <span x-text="story.points"></span>
+            <span> points by </span>
+            <a :href="getUserLink(story.user)">
+              <span x-text="story.user" class="text-underline"></span>
+            </a>
+            <span> | </span>
+            <span x-text="story.time_ago"></span>
+            <span> | </span>
+            <a href="" class="text-underline">
+              <span x-text="story.comments_count"></span>
+              <span> comments</span>
+            </a>
+          </p>
+        </div>
+     </template>
+    </div>
+
+  </div>
 </body>
 </html>
