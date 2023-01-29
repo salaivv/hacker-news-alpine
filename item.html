@@ -1,0 +1,21 @@
+---
+layout: page
+---
+
+<div 
+  x-data="{story: { }}"
+  x-init="story = await getItem(getURLParam(document.location.search, 'id').slice(0, -5))"
+>
+  {% include story.html %}
+
+  <template x-for="comment in getComments(story)">
+    <div class="my-1" x-init="style = { paddingLeft: `${comment.level * 1.5}rem`}">
+      <p :style="style">
+        <a href=""><span x-text="comment.user" class="text-underline"></span></a>
+        <span x-text="comment.time_ago"></span>
+        <span x-text="comment.level"></span>
+      </p>
+      <div x-html="comment.content" :style="style"></div>
+    </div>
+  </template>
+</div>

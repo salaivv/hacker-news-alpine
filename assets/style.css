@@ -6,9 +6,17 @@
     margin: 0;
 }
 
+ul {
+    list-style: none;
+}
+
 a {
     color: black;
     text-decoration: none;
+}
+
+p {
+    margin-bottom: 10px;
 }
 
 /* Utilities */
@@ -36,4 +44,28 @@ a {
 
 .my-2 {
     margin: 2rem 0;  
+}
+
+.px-2l {
+    padding-left: 10px;
+}
+
+/* CSS */
+
+.nav-bar {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.nav-bar li {
+    display: inline;
+}
+
+.item {
+    border-bottom: solid 1px lightgrey;
+}
+
+.comment {
+    border-left: solid 2px gray;
 }
