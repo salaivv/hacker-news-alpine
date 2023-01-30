@@ -2,8 +2,14 @@
 layout: page
 ---
 
-<div x-data="{ stories: [] }" x-init="stories = await getTopStories()">
+<div
+  x-data="{ stories: [], page: 1 }"
+  x-effect="stories = await getTopStories(page)"
+  x-transition
+>
   <template x-for="story in stories">
     {% include story.html %}
   </template>
+  
+  <a @click.prevent="page++; scrollToTop()" href="/">More</a>
 </div>

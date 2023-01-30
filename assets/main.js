@@ -8,11 +8,11 @@ const getItem = async (id) => {
 }
 
 const getURLParam = (url, param) => {
-    const params = new URLSearchParams(document.location.search);
+    const params = new URLSearchParams(url);
     return params.get(param); // is the string "Jonathan"
 }
 
-const getTopStories = async (page=1) => {
+const getTopStories = async (page) => {
     res = await fetch(`${BASE_URL}/news/${page}.json`)
     stories = await res.json()
 
@@ -56,5 +56,17 @@ const getComments = (obj) => {
 
     console.log(comments.length);
     console.log(comments);
-    return comments
+    return comments.slice(1)
 }
+
+const scrollToTop = () => {
+    // document.body.scrollTop = 0
+    // document.documentElement.scrollTop = 0;
+    window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+const getApiInfo = async () => {
+    res = await fetch(BASE_URL)
+    data = await res.json()
+    console.log(data)
+} 

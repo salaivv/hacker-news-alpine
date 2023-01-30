@@ -2,7 +2,7 @@
   <a :href="story.url">
     <p>
       <span x-text="story.title" class="text-bold"></span>
-      <span x-text="`(${new URL(story.url).host})`"></span>
+      <span x-text="`(${story.domain})`"></span>
     </p>
   </a>
   
