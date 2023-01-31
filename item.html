@@ -1,8 +1,8 @@
 ---
-layout: page
+layout: default
 ---
 
-<div x-data="{story: { }}" x-init="story = await getItem(getURLParam(document.location.search, 'id').slice(0, -5))">
+<div x-data="{story: { }}" x-init="story = await getItem(getParam(document.location.search, 'id').slice(0, -5))">
   {% include story.html %}
 
   <template x-for="comment in getComments(story)">

@@ -1,22 +1,30 @@
 const BASE_URL = 'https://api.hnpwa.com/v0'
 const BASE_DOMAIN = 'https://news.ycombinator.com'
 
+const SECTIONS = {
+    top: '/news',
+    new: '/newest',
+    ask: '/ask',
+    show: '/show',
+    jobs: '/jobs'
+}
+
 const getItem = async (id) => {
     const res = await fetch(`${BASE_URL}/item/${id}.json`)
     const item = await res.json()
     return item
 }
 
-const getURLParam = (url, param) => {
+const getParam = (url, param) => {
     const params = new URLSearchParams(url);
     return params.get(param); // is the string "Jonathan"
 }
 
-const getTopStories = async (page) => {
-    res = await fetch(`${BASE_URL}/news/${page}.json`)
+const getItems = async (section, page) => {
+    res = await fetch(`${BASE_URL}${SECTIONS[section]}/${page}.json`)
     stories = await res.json()
 
-    console.log(stories);
+    // console.log(stories);
     return stories
 }
 
@@ -60,13 +68,14 @@ const getComments = (obj) => {
 }
 
 const scrollToTop = () => {
-    // document.body.scrollTop = 0
-    // document.documentElement.scrollTop = 0;
-    window.scrollTo({top: 0, behavior: 'smooth'});
+    document.body.scrollTop = 0
+    document.documentElement.scrollTop = 0;
+    // window.scrollTo({top: 0, behavior: 'smooth'});
 }
 
 const getApiInfo = async () => {
     res = await fetch(BASE_URL)
     data = await res.json()
-    console.log(data)
+    return data
+    // console.log(data)
 } 

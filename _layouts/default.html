@@ -4,7 +4,24 @@
   {%- include head.html -%}
 
   <body>
-    <div class="container" x-data="{ apiInfo: { } }" x-init="apiInfo = await getApiInfo()">
+    <div class="container"
+         x-data="{ current: '', page: 1 }"
+         x-init="
+          current = getParam(window.location.search, 'section') || 'top';
+          page = getParam(window.location.search, 'page') || 1">
+      <!-- <h1 class="text-center"><a href="/">{{ site.title }}</a></h1> -->
+
+      <ul class="nav-bar">
+        <template x-for="section in Object.keys(SECTIONS)">
+          <li>
+            <a :href="`/?section=${section}&page=1`" x-text="section" 
+               :class="current === section ? 'text-bold' : ''">
+               <!-- @click.prevent="current = $el.innerText; page = 1"  -->
+            </a>
+          </li>
+        </template>
+      </ul>
+
       {{ content }}
     </div>
   </body>

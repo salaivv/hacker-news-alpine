@@ -1,15 +1,14 @@
 ---
-layout: page
+layout: default
 ---
 
-<div
-  x-data="{ stories: [], page: 1 }"
-  x-effect="stories = await getTopStories(page)"
-  x-transition
->
+<div x-data="{ stories: [] }"
+     x-effect="stories = await getItems(current, page)">
   <template x-for="story in stories">
     {% include story.html %}
   </template>
-  
-  <a @click.prevent="page++; scrollToTop()" href="/">More</a>
+
+  <!-- <a @click.prevent="scrollToTop(); setTimeout(() => { page++ }, 800)" href="/">More</a> -->
+  <a :href="`/?section=${current}&page=${Number(page) + 1}`">More</a>
+
 </div>

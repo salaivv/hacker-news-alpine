@@ -2,7 +2,9 @@
   <a :href="story.url">
     <p>
       <span x-text="story.title" class="text-bold"></span>
-      <span x-text="`(${story.domain})`"></span>
+      <template x-if="story.hasOwnProperty('domain')">
+        <span x-text="`(${story.domain})`"></span>
+      </template>
     </p>
   </a>
   

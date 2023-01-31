@@ -55,7 +55,8 @@ p {
 .nav-bar {
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: 4rem;
+    margin: 2rem 0;
 }
 
 .nav-bar li {
@@ -68,4 +69,15 @@ p {
 
 .comment {
     border-left: solid 2px gray;
+}
+
+@media only screen and (max-width: 892px) and (orientation: portrait) {
+    .container {
+        width: initial;
+        margin: 2rem 2rem;
+    }
+
+    .nav-bar {
+        gap: 2rem;
+    }
 }
