@@ -4,14 +4,45 @@ layout: default
 
 <div x-data="{story: { }}" x-init="story = await getItem(getParam(document.location.search, 'id').slice(0, -5))">
 
+  <div class="story-title">
+    <a :href="story.url">
+      <h1 x-text="story.title" class="text-bold"></h1>
+    </a>
+    
+    <template x-if="story.hasOwnProperty('domain')">
+      <a x-text="story.domain" :href="story.url"></a>
+    </template>
+    
+    <br>
+    <br>
+    
+    <p>
+      <span x-text="story.points"></span>
+      <span> points by </span>
+      <a :href="getUserLink(story.user)">
+        <span x-text="story.user" class="text-underline"></span>
+      </a>
+      <span> | </span>
+      <span x-text="story.time_ago"></span>
+      <span> | </span>
+      <span x-text="story.comments_count"></span>
+      <span> comments</span>
+    </p>
+  </div>
+
+  <br>
+  <h2>Comments</h2>
+
   <template x-for="comment in getComments(story)">
-    <div class="my-1" x-init="style = { paddingLeft: `${comment.level * 1.5}rem`}">
-      <p :style="style">
-        <a href=""><span x-text="comment.user" class="text-underline"></span></a>
-        <span x-text="comment.time_ago"></span>
-        <span x-text="comment.level"></span>
-      </p>
-      <div x-html="comment.content" :style="style"></div>
+    <div class="my-1" x-init="style = { marginLeft: `${comment.level * 1.5}rem`}">
+      <div class="comment" :style="style">
+        <p class="text-bold comment-head">
+          <a :href="getUserLink(comment.user)"><span x-text="comment.user" class="text-underline"></span></a>
+          <span x-text="comment.time_ago"></span>
+          <span x-text="comment.level"></span>
+        </p>
+        <div x-html="comment.content"></div>
+      </div>
     </div>
   </template>
 </div>

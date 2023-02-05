@@ -62,8 +62,8 @@ const getComments = (obj) => {
 
     flattenComments(obj)
 
-    console.log(comments.length);
-    console.log(comments);
+    // console.log(comments.length);
+    // console.log(comments);
     return comments.slice(1)
 }
 

@@ -9,10 +9,10 @@
          x-init="
           current = getParam(window.location.search, 'section') || 'top';
           page = getParam(window.location.search, 'page') || 1">
-      <!-- <h1 class="text-center"><a href="/">{{ site.title }}</a></h1> -->
+      <!-- <h2 class="text-center"><a href="/">{{ site.title }}</a></h2> -->
 
       <ul class="nav-bar">
-        <li><a href="/about" id="logo" class="text-bold">AJHN</a></li>
+        <li><a href="/?section=top&page=1" id="logo" class="text-bold">AJHN</a></li>
         <template x-for="section in Object.keys(SECTIONS)">
           <li>
             <a :href="`/?section=${section}&page=1`" x-text="section" 

@@ -7,7 +7,7 @@ layout: default
   <template x-for="story, index in stories">
     <div class="item my-1">
       <div>
-        <p class="item-no" x-text="index+1"></p>
+        <p class="item-no" x-text="page == 1 ? index + 1 : ((page - 1) * stories.length) + (index + 1)"></p>
       </div>
 
       <div>
@@ -39,8 +39,14 @@ layout: default
   </template>
 
   <!-- <a @click.prevent="scrollToTop(); setTimeout(() => { page++ }, 800)" href="/">More</a> -->
-  <div class="text-center">
+  <div class="text-center my-2" x-cloak>
     <h3><a :href="`/?section=${current}&page=${Number(page) + 1}`" class="text-bold">More »</a></h3>
+  </div>
+  <div class="text-center" x-cloak>
+    <!-- <span>AJHN | </span>
+    <span> -->
+      <a href="/about" class="text-underline">About</a>
+    <!-- </span> -->
   </div>
 
 </div>
