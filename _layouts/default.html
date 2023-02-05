@@ -12,6 +12,7 @@
       <!-- <h1 class="text-center"><a href="/">{{ site.title }}</a></h1> -->
 
       <ul class="nav-bar">
+        <li><a href="/about" id="logo" class="text-bold">AJHN</a></li>
         <template x-for="section in Object.keys(SECTIONS)">
           <li>
             <a :href="`/?section=${section}&page=1`" x-text="section" 

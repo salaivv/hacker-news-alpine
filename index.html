@@ -4,11 +4,43 @@ layout: default
 
 <div x-data="{ stories: [] }"
      x-effect="stories = await getItems(current, page)">
-  <template x-for="story in stories">
-    {% include story.html %}
+  <template x-for="story, index in stories">
+    <div class="item my-1">
+      <div>
+        <p class="item-no" x-text="index+1"></p>
+      </div>
+
+      <div>
+        <a :href="story.url">
+          <p>
+            <span x-text="story.title" class="text-bold"></span>
+            <template x-if="story.hasOwnProperty('domain')">
+              <span x-text="`(${story.domain})`"></span>
+            </template>
+          </p>
+        </a>
+        
+        <p>
+          <span x-text="story.points"></span>
+          <span> points by </span>
+          <a :href="getUserLink(story.user)">
+            <span x-text="story.user" class="text-underline"></span>
+          </a>
+          <span> | </span>
+          <span x-text="story.time_ago"></span>
+          <span> | </span>
+          <a :href="getItemLink(story.id)" class="text-underline">
+            <span x-text="story.comments_count"></span>
+            <span> comments</span>
+          </a>
+        </p>
+      </div>
+    </div>
   </template>
 
   <!-- <a @click.prevent="scrollToTop(); setTimeout(() => { page++ }, 800)" href="/">More</a> -->
-  <a :href="`/?section=${current}&page=${Number(page) + 1}`">More</a>
+  <div class="text-center">
+    <h3><a :href="`/?section=${current}&page=${Number(page) + 1}`" class="text-bold">More »</a></h3>
+  </div>
 
 </div>

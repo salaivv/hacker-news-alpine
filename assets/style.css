@@ -24,6 +24,7 @@ p {
 .container {
     width: 768px;
     margin: auto;
+    margin-bottom: 2rem;
 }
 
 .text-center {
@@ -35,7 +36,8 @@ p {
 }
 
 .text-underline {
-    text-decoration: underline;
+    /* text-decoration: underline; */
+    border-bottom: 1px dashed;
 }
 
 .my-1 {
@@ -54,9 +56,13 @@ p {
 
 .nav-bar {
     display: flex;
-    justify-content: center;
+    justify-content: start;
+    padding-left: 1rem;
     gap: 4rem;
     margin: 2rem 0;
+    box-sizing: border-box;
+    padding-bottom: 0.8rem;
+    /* border-bottom: 1px solid; */
 }
 
 .nav-bar li {
@@ -64,20 +70,38 @@ p {
 }
 
 .item {
-    border-bottom: solid 1px lightgrey;
+    display: flex;
+    align-items: center;
+}
+
+.item-no {
+    padding: 0 2.5rem 0 1rem;
+    font-size: 1.5rem;
+    color: grey;
+    font-weight: 300;
+    text-align: center;
 }
 
 .comment {
     border-left: solid 2px gray;
 }
 
+#logo {
+    padding: 5px 15px 5px 0;
+    font-family: monospace;
+    font-size: 1rem;
+    border-right: 1px solid;
+    /* border-left: 1px solid; */
+}
+
 @media only screen and (max-width: 892px) and (orientation: portrait) {
     .container {
         width: initial;
-        margin: 2rem 2rem;
+        margin: 2rem;
     }
 
     .nav-bar {
-        gap: 2rem;
+        padding-left: 0;
+        gap: 1.6rem;
     }
 }

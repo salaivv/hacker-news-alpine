@@ -3,7 +3,6 @@ layout: default
 ---
 
 <div x-data="{story: { }}" x-init="story = await getItem(getParam(document.location.search, 'id').slice(0, -5))">
-  {% include story.html %}
 
   <template x-for="comment in getComments(story)">
     <div class="my-1" x-init="style = { paddingLeft: `${comment.level * 1.5}rem`}">
