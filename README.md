@@ -4,7 +4,7 @@ A Hacker News client (PWA) using [Jekyll](https://jekyllrb.com/) and [Alpine.js]
 
 <!-- ![Desktop Screenshot](/images/desktop.png) -->
 
-<img src="./images/mobile.png" width="300px">
+<img src="./images/mobile_1.png" width="350px">
 
 The client is live [here](https://alpinehn.pages.dev).
 
