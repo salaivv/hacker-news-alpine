@@ -39,7 +39,6 @@ layout: default
         <p class="text-bold comment-head">
           <a :href="getUserLink(comment.user)"><span x-text="comment.user" class="text-underline"></span></a>
           <span x-text="comment.time_ago"></span>
-          <span x-text="comment.level"></span>
         </p>
         <div x-html="comment.content"></div>
       </div>
