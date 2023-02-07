@@ -5,7 +5,7 @@ layout: default
 <div x-data="{story: { }}" x-init="story = await getItem(getParam(document.location.search, 'id').slice(0, -5))">
 
   <div class="story-title">
-    <a :href="story.url">
+    <a :href="story.url" target="_blank" rel="noopener noreferrer">
       <h1 x-text="story.title" class="text-bold"></h1>
     </a>
     

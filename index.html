@@ -11,7 +11,7 @@ layout: default
       </div>
 
       <div>
-        <a :href="story.url">
+        <a :href="story.url" target="_blank" rel="noopener noreferrer">
           <p>
             <span x-text="story.title" class="text-bold"></span>
             <template x-if="story.hasOwnProperty('domain')">
