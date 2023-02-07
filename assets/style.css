@@ -113,11 +113,6 @@ p {
     font-family: monospace;
     font-size: 1rem;
     border-right: 1px solid;
-    /* border-left: 1px solid; */
-}
-
-.story-title {
-    /* border-bottom: 2px solid lightgray; */
 }
 
 @media only screen and (max-width: 892px) and (orientation: portrait) {
@@ -129,5 +124,15 @@ p {
     .nav-bar {
         padding-left: 0;
         gap: 1.6rem;
+    }
+
+    .item > div:first-of-type {
+        width: 20%;
+        margin-left: -0.75rem;
+        margin-right: 0.5rem;
+    }
+
+    .item > div {
+        width: 80%;
     }
 }
