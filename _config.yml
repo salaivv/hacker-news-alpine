@@ -22,7 +22,7 @@ title: Alpine Jekyll HN
 description: >- # this means to ignore newlines until "baseurl:"
   A Hacker News client (PWA) using Jekyll and Alpine.js.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://alpinehn.pages.dev" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
 # theme: minima
