@@ -10,7 +10,7 @@ The client is live [here](https://alpinehn.pages.dev).
 
 ## Running locally
 
-You need Ruby and Jekyll installed to run the project locally. Once you have them installed, open the terminal and run:
+You need Ruby and Jekyll installed to run the project locally. Once you have them installed, open the terminal and run these commands:
 
 ```bash
 git clone https://github.com/salaivv/hacker-news-alpine
@@ -24,7 +24,7 @@ Then you can access the client in your browser at `http://localhost:4000`. Jekyl
 If you want to serve the client in you local network then you can run:
 
 ```bash
-bundle exec jekyll serve --livereload --host-0.0.0.0
+bundle exec jekyll serve --livereload --host=0.0.0.0
 ```
 
 Then you can access the client from any device in your network by visiting `http://{IP_TO_YOUR_MACHINE}:4000`.
