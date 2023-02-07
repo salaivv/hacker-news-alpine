@@ -11,14 +11,22 @@ layout: default
       </div>
 
       <div>
-        <a :href="story.url" target="_blank" rel="noopener noreferrer">
-          <p>
-            <span x-text="story.title" class="text-bold"></span>
-            <template x-if="story.hasOwnProperty('domain')">
+        <template x-if="story.hasOwnProperty('domain')">
+          <a :href="story.url" target="_blank" rel="noopener noreferrer">
+            <p>
+              <span x-text="story.title" class="text-bold"></span>
               <span x-text="`(${story.domain})`"></span>
-            </template>
-          </p>
-        </a>
+            </p>
+          </a>
+        </template>
+
+        <template x-if="!story.hasOwnProperty('domain')">
+          <a :href="getItemLink(story.id)">
+            <p>
+              <span x-text="story.title" class="text-bold"></span>
+            </p>
+          </a>
+        </template>
         
         <p>
           <span x-text="story.points"></span>
@@ -38,15 +46,11 @@ layout: default
     </div>
   </template>
 
-  <!-- <a @click.prevent="scrollToTop(); setTimeout(() => { page++ }, 800)" href="/">More</a> -->
-  <div class="text-center my-2" x-cloak>
+  <div class="text-center my-2">
     <h3><a :href="`/?section=${current}&page=${Number(page) + 1}`" class="text-bold">More »</a></h3>
   </div>
-  <div class="text-center" x-cloak>
-    <!-- <span>AJHN | </span>
-    <span> -->
+  <div class="text-center">
       <a href="/about" class="text-underline">About</a>
-    <!-- </span> -->
   </div>
 
 </div>

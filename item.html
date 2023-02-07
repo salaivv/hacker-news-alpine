@@ -5,12 +5,17 @@ layout: default
 <div x-data="{story: { }}" x-init="story = await getItem(getParam(document.location.search, 'id').slice(0, -5))">
 
   <div class="story-title">
-    <a :href="story.url" target="_blank" rel="noopener noreferrer">
-      <h1 x-text="story.title" class="text-bold"></h1>
-    </a>
-    
     <template x-if="story.hasOwnProperty('domain')">
-      <a x-text="story.domain" :href="story.url"></a>
+      <div>
+        <a :href="story.url" target="_blank" rel="noopener noreferrer">
+          <h1 x-text="story.title" class="text-bold"></h1>
+        </a>
+        <a x-text="story.domain" :href="story.url"></a>
+      </div>
+    </template>
+
+    <template x-if="!story.hasOwnProperty('domain')">
+      <h1 x-text="story.title" class="text-bold"></h1>
     </template>
     
     <br>
