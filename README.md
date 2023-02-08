@@ -2,11 +2,11 @@
 
 A Hacker News client (PWA) using [Jekyll](https://jekyllrb.com/) and [Alpine.js](https://alpinejs.dev/).
 
-<!-- ![Desktop Screenshot](/images/desktop.png) -->
-
 <img src="./images/mobile_1.png" width="350px">
 
 The client is live [here](https://alpinehn.pages.dev).
+
+Read my [blog post](https://salaivv.com/2023/02/07/hacker-news-alpine) on building the client.
 
 ## Running locally
 
