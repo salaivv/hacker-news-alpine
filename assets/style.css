@@ -7,7 +7,7 @@
 [x-cloak] { display: none !important; }
 
 * {
-    font-family: 'Open Sans', sans-serif;
+    font-family: sans-serif;
     /* font-weight: 300; */
     padding: 0;
     margin: 0;
@@ -24,8 +24,19 @@ a {
     text-decoration: none;
 }
 
+.item a:visited {
+    color: grey
+}
+
 p {
     margin-bottom: 10px;
+    font-size: 1.1rem;
+    line-height: 1.3;
+}
+
+.content p, .comment p {
+    margin-bottom: 15px;
+    line-height: 1.3;
 }
 
 /* Utilities */
@@ -47,6 +58,7 @@ p {
 .text-underline {
     /* text-decoration: underline; */
     border-bottom: 1px dashed;
+    /* color: inherit; */
 }
 
 .my-1 {
@@ -83,6 +95,10 @@ p {
     align-items: center;
 }
 
+/* .item div:nth-child(2) {
+    border-bottom: 1px solid lightgrey;
+} */
+
 .item > div:first-of-type {
     width: 12%;
 }
@@ -94,19 +110,29 @@ p {
 .item-no {
     /* padding: 0 2.5rem 0 1rem; */
     font-size: 1.5rem;
-    color: grey;
+    color: gray;
     font-weight: 300;
     text-align: center;
 }
 
 .comment {
-    border-left: solid 2px lightgray;
+    border-left: solid 1px lightgray;
     padding-left: 1rem;
 }
 
-.comment-head {
-    color: gray;
+.comment-head, 
+.comment-head > a, 
+.item-info, 
+.item-info > a, 
+.item-info > p {
+    color: grey;
+    font-weight: lighter;
+    font-size: 1rem;
 }
+
+/* #item-info > p {
+
+} */
 
 #logo {
     padding: 5px 15px 5px 0;
@@ -114,6 +140,12 @@ p {
     font-size: 1rem;
     border-right: 1px solid;
 }
+
+
+/* #item-info, #item-info > a, #item-info > p {
+    color: grey;
+    font-weight: lighter;
+} */
 
 @media only screen and (max-width: 892px) and (orientation: portrait) {
     .container {

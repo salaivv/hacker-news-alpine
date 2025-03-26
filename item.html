@@ -7,10 +7,14 @@ layout: default
   <div class="story-title">
     <template x-if="story.hasOwnProperty('domain')">
       <div>
-        <a :href="story.url" target="_blank" rel="noopener noreferrer">
-          <h1 x-text="story.title" class="text-bold"></h1>
-        </a>
-        <a x-text="story.domain" :href="story.url"></a>
+        <p>
+          <a :href="story.url" target="_blank" rel="noopener noreferrer">
+            <h1 x-text="story.title" class="text-bold"></h1>
+          </a>
+        </p>
+        <p>
+          <a x-text="story.domain" :href="story.url" class="domain"></a>
+        </p>
       </div>
     </template>
 
@@ -20,7 +24,7 @@ layout: default
 
     <br>
     
-    <p>
+    <p class="item-info">
       <span x-text="story.points"></span>
       <span> points by </span>
       <a :href="getUserLink(story.user)">
@@ -36,13 +40,13 @@ layout: default
     
   <br>
 
-  <div x-html="story.content"></div>
+  <div x-html="story.content" class=content></div>
 
   <br>
   <h2>Comments</h2>
 
   <template x-for="comment in getComments(story)">
-    <div class="my-1" x-init="style = { marginLeft: `${comment.level * 1.5}rem`}">
+    <div class="my-1" x-init="style = { marginLeft: `${comment.level * 2}rem`}">
       <div class="comment" :style="style">
         <p class="text-bold comment-head">
           <a :href="getUserLink(comment.user)"><span x-text="comment.user" class="text-underline"></span></a>
