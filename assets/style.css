@@ -104,7 +104,8 @@ p {
 /* Utilities */
 
 .container {
-    width: 768px;
+    width: 90%;
+    max-width: 768px;
     margin: auto;
     margin-bottom: 2rem;
 }
@@ -161,7 +162,9 @@ p {
 @media only screen and (max-width: 892px) and (orientation: portrait) {
     .container {
         width: initial;
-        margin: 2rem;
+        margin: 0 auto;
+        padding: 2rem;
+        overflow-x: hidden;
     }
 
     .nav-bar {
