@@ -17,7 +17,7 @@ layout: default
     <template x-if="!story.hasOwnProperty('domain')">
       <h1 x-text="story.title" class="text-bold"></h1>
     </template>
-    
+
     <br>
     
     <p>
@@ -33,6 +33,10 @@ layout: default
       <span> comments</span>
     </p>
   </div>
+    
+  <br>
+
+  <div x-html="story.content"></div>
 
   <br>
   <h2>Comments</h2>
