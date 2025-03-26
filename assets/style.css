@@ -3,14 +3,14 @@
     --font-color-primary: black;
     --font-color-secondary: gray;
     --line-color: lightgrey;
-    --background-color: rgb(247, 247, 247);
+    --background-color: #f7f7f7;
 }
 
 .dark-theme {
     --font-color-primary: rgb(227, 227, 227);
     --font-color-secondary: rgb(150, 148, 148);
     --line-color: rgb(101, 101, 101);
-    --background-color: rgb(29, 29, 29);
+    --background-color: #1d1d1d;
 }
 
 
@@ -81,7 +81,7 @@ p {
 .item-info > a, 
 .item-info > p {
     color: var(--font-color-secondary);
-    font-weight: lighter;
+    font-weight: light;
     font-size: 1rem;
 }
 
@@ -94,7 +94,7 @@ p {
 }
 
 #logo {
-    padding: 5px 15px 5px 0;
+    padding: 5px 15px 5px 5px;
     font-family: monospace;
     font-size: 1rem;
     border-right: 1px solid;

@@ -4,8 +4,8 @@ layout: default
 permalink: /about/
 ---
 
-A Hacker News client (PWA) using Jekyll and Alpine.js.
+A clean and minimal Hacker News client (PWA) using Jekyll and Alpine.js.
 
-You can find the source for this client in my **[GitHub repo](https://github.com/salaivv/hacker-news-alpine)**.
+You can find the source code for this client on **[GitHub](https://github.com/salaivv/hacker-news-alpine)**.
 
-Follow me on twitter **[@salaivv](https://twitter.com/salaivv)**
+You can find me on twitter **[@salaivv](https://twitter.com/salaivv)**

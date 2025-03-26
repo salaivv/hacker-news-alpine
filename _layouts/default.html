@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "en" }}"
-      x-data="{ darkMode: false }" :class="{ 'dark-theme': darkMode }"
-      x-init="darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches"
+      x-data="themeHandler()"
 >
 
   {%- include head.html -%}
 
-  <body>
+  <body x-init="init()">
     <div class="container"
          x-data="{ current: '', page: 1 }"
          x-init="
@@ -27,7 +26,32 @@
       </ul>
 
       {{ content }}
+
     </div>
+
+    <script>
+      function themeHandler() {
+        return {
+          init() {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+              this.setDarkMode();
+            } else {
+              this.setLightMode();
+            }
+          },
+          setDarkMode() {
+            document.body.classList.add('dark-theme');
+            document.querySelector('meta[name="theme-color"]').setAttribute('content', "#1d1d1d");
+            document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]').setAttribute('content', 'black');
+          },
+          setLightMode() {
+            document.body.classList.remove('dark-theme');
+            document.querySelector('meta[name="theme-color"]').setAttribute('content', "#f7f7f7");
+            document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]').setAttribute('content', 'default');
+          }
+        }
+      }
+  </script>
   </body>
 
 </html>
