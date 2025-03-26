@@ -46,8 +46,9 @@ layout: default
   <template x-for="comment in getComments(story)">
     <div class="my-1" x-init="style = { marginLeft: `${comment.level * 2}rem`}">
       <div class="comment" :style="style">
-        <p class="text-bold comment-head">
-          <a :href="getUserLink(comment.user)"><span x-text="comment.user" class="text-underline"></span></a>
+        <p class="comment-head">
+          <a :href="getUserLink(comment.user)"><span x-text="comment.user" class="text-underline text-bold"></span></a>
+          <!-- <span>&nbsp;</span> -->
           <span x-text="comment.time_ago"></span>
         </p>
         <div x-html="comment.content"></div>

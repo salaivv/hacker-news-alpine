@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+<html lang="{{ page.lang | default: site.lang | default: "en" }}"
+      x-data="{ darkMode: false }" :class="{ 'dark-theme': darkMode }"
+      x-init="darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches"
+>
 
   {%- include head.html -%}
 
