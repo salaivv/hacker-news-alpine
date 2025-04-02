@@ -33,14 +33,33 @@
       function themeHandler() {
         return {
           init() {
-            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-              document.querySelector('meta[name="theme-color"]').setAttribute('content', "#1d1d1d");
-              document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]').setAttribute('content', 'black');
+            const darkMode = window.matchMedia('(prefers-color-scheme: dark)');
+
+            this.updateTheme(darkMode.matches);
+
+            darkMode.addEventListener('change', (event) => {
+                this.updateTheme(event.matches);
+            });
+          },
+          updateTheme(isDarkMode) {
+            if (isDarkMode) {
+                this.setDarkMode();
             } else {
-              document.querySelector('meta[name="theme-color"]').setAttribute('content', "#f7f7f7");
-              document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]').setAttribute('content', 'default');
+                this.setLightMode();
             }
-          }
+          },
+          getThemeColor() {
+            const rootStyles = getComputedStyle(document.documentElement);
+            return themeColor = rootStyles.getPropertyValue('--background-color').trim();
+          },
+          setDarkMode() {
+            document.querySelector('meta[name="theme-color"]').setAttribute('content', this.getThemeColor());
+            document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]').setAttribute('content', 'black');
+          },
+          setLightMode() {
+            document.querySelector('meta[name="theme-color"]').setAttribute('content', this.getThemeColor());
+            document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]').setAttribute('content', 'default');
+          },
         }
       }
   </script>
