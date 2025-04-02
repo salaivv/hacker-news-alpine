@@ -34,20 +34,12 @@
         return {
           init() {
             if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-              this.setDarkMode();
+              document.querySelector('meta[name="theme-color"]').setAttribute('content', "#1d1d1d");
+              document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]').setAttribute('content', 'black');
             } else {
-              this.setLightMode();
+              document.querySelector('meta[name="theme-color"]').setAttribute('content', "#f7f7f7");
+              document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]').setAttribute('content', 'default');
             }
-          },
-          setDarkMode() {
-            document.body.classList.add('dark-theme');
-            document.querySelector('meta[name="theme-color"]').setAttribute('content', "#1d1d1d");
-            document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]').setAttribute('content', 'black');
-          },
-          setLightMode() {
-            document.body.classList.remove('dark-theme');
-            document.querySelector('meta[name="theme-color"]').setAttribute('content', "#f7f7f7");
-            document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]').setAttribute('content', 'default');
           }
         }
       }
