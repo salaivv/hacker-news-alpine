@@ -18,9 +18,9 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Alpine Jekyll HN
+title: Alpine HN
 description: >- # this means to ignore newlines until "baseurl:"
-  A Hacker News client (PWA) using Jekyll and Alpine.js.
+  A clean and minimal Hacker News reader using Alpine.js
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://alpinehn.pages.dev" # the base hostname & protocol for your site, e.g. http://example.com
 
