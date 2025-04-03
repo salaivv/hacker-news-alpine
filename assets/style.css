@@ -168,6 +168,15 @@ p {
     align-items: center;
 }
 
+.loading {
+    display: flex;
+    justify-content: center;
+}
+
+.loading img{
+    max-width: 2rem;
+}
+
 
 @media only screen and (max-width: 892px) and (orientation: portrait) {
     .container {
