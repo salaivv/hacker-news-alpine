@@ -4,62 +4,71 @@ layout: default
 
 <div x-data="{story: { }}" x-init="story = await getItem(getParam(document.location.search, 'id').slice(0, -5))">
 
-  <div class="story-title">
-    <template x-if="story.hasOwnProperty('domain')">
-      <div>
-        <a :href="story.url" target="_blank" rel="noopener noreferrer">
+  <template x-if="!story.hasOwnProperty('title')">
+    {%- include loading.html -%}
+  </template>
+
+  <template x-if="story.hasOwnProperty('title')">
+    <div>
+      <div class="story-title">
+        <template x-if="story.hasOwnProperty('domain')">
+          <div>
+            <a :href="story.url" target="_blank" rel="noopener noreferrer">
+              <h1 x-text="story.title" class="text-bold"></h1>
+            </a>
+            <p>
+              <a x-text="story.domain" :href="story.url" class="domain"></a>
+            </p>
+          </div>
+        </template>
+
+        <template x-if="!story.hasOwnProperty('domain')">
           <h1 x-text="story.title" class="text-bold"></h1>
-        </a>
-        <p>
-          <a x-text="story.domain" :href="story.url" class="domain"></a>
+        </template>
+
+        <!-- <br> -->
+        
+        <p class="item-info">
+          <span x-text="story.points"></span>
+          <span> points by </span>
+          <a :href="getUserLink(story.user)">
+            <span x-text="story.user" class="text-underline text-bold"></span>
+          </a>
+          <span> | </span>
+          <span x-text="story.time_ago"></span>
+          <span> | </span>
+          <span x-text="story.comments_count"></span>
+          <span> comments</span>
         </p>
       </div>
-    </template>
+        
+      <!-- <br> -->
 
-    <template x-if="!story.hasOwnProperty('domain')">
-      <h1 x-text="story.title" class="text-bold"></h1>
-    </template>
+      <div x-html="story.content" class=content></div>
 
-    <!-- <br> -->
-    
-    <p class="item-info">
-      <span x-text="story.points"></span>
-      <span> points by </span>
-      <a :href="getUserLink(story.user)">
-        <span x-text="story.user" class="text-underline text-bold"></span>
-      </a>
-      <span> | </span>
-      <span x-text="story.time_ago"></span>
-      <span> | </span>
-      <span x-text="story.comments_count"></span>
-      <span> comments</span>
-    </p>
-  </div>
-    
-  <!-- <br> -->
+      <br>
+      <h2>Comments</h2>
 
-  <div x-html="story.content" class=content></div>
-
-  <br>
-  <h2>Comments</h2>
-
-  <template x-for="comment in getComments(story)">
-    <div class="my-1" x-init="style = { marginLeft: `${comment.level * 2}rem`}">
-      <div class="comment" :style="style">
-        <p class="comment-head">
-          <a :href="getUserLink(comment.user)"><span x-text="comment.user" class="text-underline text-bold"></span></a>
-          <!-- <span>&nbsp;</span> -->
-          <span x-text="comment.time_ago"></span>
-        </p>
-        <div x-html="comment.content"></div>
+      <template x-for="comment in getComments(story)">
+        <div class="my-1" x-init="style = { marginLeft: `${comment.level * 2}rem`}">
+          <div class="comment" :style="style">
+            <p class="comment-head">
+              <a :href="getUserLink(comment.user)"><span x-text="comment.user" class="text-underline text-bold"></span></a>
+              <!-- <span>&nbsp;</span> -->
+              <span x-text="comment.time_ago"></span>
+            </p>
+            <div x-html="comment.content"></div>
+          </div>
+        </div>
+      </template>
+      
+      <div class="text-center" x-cloak>
+        <!-- <span>AJHN | </span>
+        <span> -->
+          <a href="/about" class="text-underline">About</a>
+        <!-- </span> -->
       </div>
+
     </div>
   </template>
-  
-  <div class="text-center" x-cloak>
-    <!-- <span>AJHN | </span>
-    <span> -->
-      <a href="/about" class="text-underline">About</a>
-    <!-- </span> -->
-  </div>
 </div>
